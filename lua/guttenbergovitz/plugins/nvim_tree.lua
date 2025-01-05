@@ -24,11 +24,11 @@ function M.setup()
     vim.api.nvim_set_hl(0, "NvimTreeSpecialFile", { fg = colors.type })
     vim.api.nvim_set_hl(0, "NvimTreeSymlink", { fg = colors.type })
     
-    -- Git integration
-    vim.api.nvim_set_hl(0, "NvimTreeGitNew", { fg = colors.string })
+    -- Git integration - using warmer colors
+    vim.api.nvim_set_hl(0, "NvimTreeGitNew", { fg = colors.type })
     vim.api.nvim_set_hl(0, "NvimTreeGitDirty", { fg = colors.func })
     vim.api.nvim_set_hl(0, "NvimTreeGitDeleted", { fg = colors.keyword })
     vim.api.nvim_set_hl(0, "NvimTreeGitIgnored", { fg = colors.fg_dark })
 end
 
-return M 
+return M
