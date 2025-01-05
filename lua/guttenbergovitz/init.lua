@@ -10,31 +10,8 @@
 local M = {}
 local config = require("guttenbergovitz.config")
 
----Main setup function for the colorscheme
----@param opts table|nil Configuration options to override defaults
-function M.setup(opts)
-    -- Initialize configuration with user options
-    config.setup(opts)
-    
-    -- Verify Neovim version compatibility
-    if vim.version().minor < 7 then
-        vim.notify(
-            "guttenbergovitz.nvim: Neovim >= 0.7 is required",
-            vim.log.levels.ERROR
-        )
-        return
-    end
-    
-    -- Initialize and apply the color palette
-    local colors = require("guttenbergovitz.colors")
-    colors.setup()
-    
-    -- Load plugin integrations based on user configuration
-    M.load_plugin_support()
-end
-
 ---Load plugin-specific highlighting if enabled in config
-local function load_plugin_support()
+function M.load_plugin_support()
     local plugins = config.options.plugins
     
     -- Git integration
@@ -61,6 +38,29 @@ local function load_plugin_support()
     if plugins.indent_blankline then
         require("guttenbergovitz.plugins.indent_blankline").setup()
     end
+end
+
+---Main setup function for the colorscheme
+---@param opts table|nil Configuration options to override defaults
+function M.setup(opts)
+    -- Initialize configuration with user options
+    config.setup(opts)
+    
+    -- Verify Neovim version compatibility
+    if vim.version().minor < 9 then
+        vim.notify(
+            "guttenbergovitz.nvim: Neovim >= 0.9 is required",
+            vim.log.levels.ERROR
+        )
+        return
+    end
+    
+    -- Initialize and apply the color palette
+    local colors = require("guttenbergovitz.colors")
+    colors.setup()
+    
+    -- Load plugin integrations based on user configuration
+    M.load_plugin_support()
 end
 
 return M 
