@@ -31,4 +31,4 @@ function M.setup()
     vim.api.nvim_set_hl(0, "BufferLineInfo", { fg = colors.green, bg = colors.bg_dark })
 end
 
-return M 
+return M

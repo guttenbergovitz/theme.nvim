@@ -13,4 +13,4 @@ function M.setup()
     vim.api.nvim_set_hl(0, "GitSignsDelete", { fg = colors.red })
 end
 
-return M 
+return M

@@ -19,6 +19,10 @@ M.colors = {
     func = "#d79969",
     string = "#89a87d",
     type = "#d6b986",
+    red = "#a96b69",
+    yellow = "#d6b986",
+    green = "#89a87d",
+    border = "#3a3a3d",
 }
 
 function M.setup()
@@ -54,4 +58,4 @@ function M.get()
     return M.colors
 end
 
-return M 
+return M

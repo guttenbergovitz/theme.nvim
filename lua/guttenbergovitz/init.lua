@@ -24,6 +24,11 @@ function M.load_plugin_support()
         require("guttenbergovitz.plugins.nvim_tree").setup()
     end
     
+    -- Neo-tree integration
+    if plugins.neo_tree then
+        require("guttenbergovitz.plugins.neo_tree").setup()
+    end
+    
     -- Status line
     if plugins.lualine then
         require("guttenbergovitz.plugins.lualine").setup()
@@ -63,4 +68,4 @@ function M.setup(opts)
     M.load_plugin_support()
 end
 
-return M 
+return M
